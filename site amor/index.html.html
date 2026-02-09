@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nosso Amor 💖</title>
+
+    <!-- Fontes românticas -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #ffb6c1, #ffc0cb, #ffe4e1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 30px;
+            padding: 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+            color: #ff4f9a;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #d63384;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .foto {
+            margin: 20px 0;
+        }
+
+        .foto img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+        }
+
+        .contador {
+            background: #ffe0ec;
+            padding: 15px;
+            border-radius: 20px;
+            margin-top: 15px;
+            color: #ff2f92;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            background: linear-gradient(45deg, #ff4f9a, #ff85c2);
+            border: none;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 79, 154, 0.5);
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .mensagem {
+            display: none;
+            margin-top: 25px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 34px;
+            color: #ff2f92;
+            animation: aparecer 1s ease forwards;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Corações */
+        .coracao {
+            position: fixed;
+            bottom: -20px;
+            font-size: 20px;
+            animation: subir 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes subir {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-110vh); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Nosso Amor 💕</h1>
+    <p>Desde 9 de dezembro de 2024</p>
+
+    <!-- FOTO FIXA -->
+    <div class="foto">
+        <img src="nosso_amor.jpg" alt="Nossa foto juntos 💖">
+    </div>
+
+    <!-- CONTADOR -->
+    <div class="contador" id="contador"></div>
+
+    <button onclick="mostrarMensagem()">Clique aqui 💖</button>
+
+    <div class="mensagem" id="mensagem">
+        feliz dia 9 minha princesinha! 💖
+    </div>
+</div>
+
+<script>
+    function mostrarMensagem() {
+        document.getElementById("mensagem").style.display = "block";
+    }
+
+    // Contador de tempo juntos
+    const inicio = new Date("2024-12-09T00:00:00");
+
+    function atualizarContador() {
+        const agora = new Date();
+        let diff = agora - inicio;
+
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+        document.getElementById("contador").innerHTML =
+            `💞 Estamos juntos há <br><strong>${dias}</strong> dias, <strong>${horas}</strong> horas e <strong>${minutos}</strong> minutos 💕`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+
+    // Corações animados
+    setInterval(() => {
+        const coracao = document.createElement("div");
+        coracao.className = "coracao";
+        coracao.innerHTML = "💖";
+        coracao.style.left = Math.random() * 100 + "vw";
+        coracao.style.fontSize = Math.random() * 20 + 15 + "px";
+        coracao.style.animationDuration = Math.random() * 3 + 4 + "s";
+        document.body.appendChild(coracao);
+
+        setTimeout(() => coracao.remove(), 7000);
+    }, 400);
+</script>
+
+</body>
+</html>
